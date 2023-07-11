@@ -38,7 +38,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Employee[id= " + id + ", ФИО: " + fullName + ", Отдел: " + department + ", З/П: " + salary + "]";
+        return "Сотрудник[id= " + id + ", ФИО: " + fullName + ", Отдел: " + department + ", З/П: " + salary + "]";
     }
 
     // Метод для изменения зарплаты всех сотрудников на величину в %
@@ -97,12 +97,16 @@ public class Employee {
         double totalSalary = 0.0; //
         int employeeCount = 0;
         for (Employee employee : employees) {
-            if (employee.getDepartment() == department && employee != null) {
+            if (employee.getDepartment() == department) {
                 employeeCount++;
                 totalSalary += employee.getSalary();
             }
         }
-        return totalSalary / employeeCount;
+        if (employeeCount == 0) {
+            return 0;
+        } else {
+            return totalSalary / employeeCount;
+        }
     }
     // Метод для печати всех сотрудников отдела (все данные, кроме отдела)
     public static void printEmployeesInDepartment(int department, Employee[] employees) {
