@@ -50,6 +50,17 @@ public class Employee {
         System.out.println("Произвели индексирование зарплат");
     }
 
+    // Метод для изменения зарплаты сотрудников отдела на величину в %
+    public static void changeSalaryDepartament(int department, double percent, Employee[] employees) {
+        for (Employee employee : employees) {
+            if (employee.getDepartment() == department){
+                double increase = employee.getSalary() * percent / 100.0;
+                employee.setSalary(employee.getSalary() + increase);
+            }
+        }
+        System.out.println("Произвели индексирование зарплат отдела " + department);
+    }
+
     // Метод для нахождения сотрудника с минимальной зарплатой в отделе
     public static Employee findEmployeeWithMinSalary(int department, Employee[] employees) {
         Employee minSalaryEmployeeDepartament = null;
@@ -98,9 +109,7 @@ public class Employee {
         System.out.println("Сотрудники отдела " + department + ":");
         for (Employee employee : employees) {
             if (employee.getDepartment() == department) {
-                System.out.println("ID: " + employee.getId());
-                System.out.println("Имя: " + employee.getFullName());
-                System.out.println("Зарплата: " + employee.getSalary());
+                System.out.println("ID: " + employee.getId() + ", Имя: " + employee.getFullName() + ", Зарплата: " + employee.getSalary());
             }
         }
     }
@@ -110,9 +119,7 @@ public class Employee {
         System.out.println("Сотрудники с зарплатой меньше " + amount + ":");
         for (Employee employee : employees) {
             if (employee.getSalary() < amount) {
-                System.out.println("ID: " + employee.getId());
-                System.out.println("Имя: " + employee.getFullName());
-                System.out.println("Зарплата: " + employee.getSalary());
+                System.out.println("ID: " + employee.getId() + ", Имя: " + employee.getFullName() + ", Зарплата: " + employee.getSalary());
             }
         }
     }
@@ -122,9 +129,7 @@ public class Employee {
         System.out.println("Сотрудники с зарплатой больше или равной " + amount + ":");
         for (Employee employee : employees) {
             if (employee.getSalary() >= amount) {
-                System.out.println("ID: " + employee.getId());
-                System.out.println("Имя: " + employee.getFullName());
-                System.out.println("Зарплата: " + employee.getSalary());
+                System.out.println("ID: " + employee.getId() + ", Имя: " + employee.getFullName() + ", Зарплата: " + employee.getSalary());
             }
         }
     }

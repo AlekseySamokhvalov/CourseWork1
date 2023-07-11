@@ -116,6 +116,9 @@ public class Main{
         double averageSalaryDepartament = Employee.calculateAverageSalaryDepartament(2, employeeArray);
         System.out.println("Средняя зарплата в отделе 2: " + averageSalaryDepartament);
 
+        // Индексация зарплат сотрудникам отдела
+        Employee.changeSalaryDepartament(3, 5.0, employeeArray);
+
         // Напечатать всех сотрудников отдела 2
         Employee.printEmployeesInDepartment(2, employeeArray);
 
