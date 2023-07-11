@@ -64,15 +64,15 @@ public class Main{
     }
     public static void main(String[] args) {
         // Создаем записи о сотрудниках
-        employeeArray[0] = new Employee("Иванов Иван Иванович", 1, 50000.1);
-        employeeArray[1] = new Employee("Петров Петр Петрович", 2, 68000.2);
-        employeeArray[2] = new Employee("Сидоров Сидор Сидорович", 3, 45000.3);
-        employeeArray[3] = new Employee("Алексеев Алексей Алексеевич", 4, 50000.4);
-        employeeArray[4] = new Employee("Викторов Виктор Викторович", 5, 60000.5);
-        employeeArray[5] = new Employee("Грозный Иван Алексеевич", 3, 65000.6);
-        employeeArray[6] = new Employee("Алексеева Алиса Андреевна", 1, 80000.7);
-        employeeArray[7] = new Employee("Викторова Виктория Викторовна", 2, 70000.8);
-        employeeArray[8] = new Employee("Грозная Иванка Юрьевна", 5, 85000.9);
+        employeeArray[0] = new Employee("Иванов Иван Иванович", 1, 50000.0);
+        employeeArray[1] = new Employee("Петров Петр Петрович", 2, 68000.0);
+        employeeArray[2] = new Employee("Сидоров Сидор Сидорович", 3, 45000.0);
+        employeeArray[3] = new Employee("Алексеев Алексей Алексеевич", 4, 50000.0);
+        employeeArray[4] = new Employee("Викторов Виктор Викторович", 5, 60000.0);
+        employeeArray[5] = new Employee("Грозный Иван Алексеевич", 3, 65000.0);
+        employeeArray[6] = new Employee("Алексеева Алиса Андреевна", 1, 80000.0);
+        employeeArray[7] = new Employee("Викторова Виктория Викторовна", 2, 70000.0);
+        employeeArray[8] = new Employee("Грозная Иванка Юрьевна", 5, 85000.0);
         employeeArray[9] = new Employee("Алексеевский Александр Алексеевич", 4, 90000.0);
 
         // Получить список всех сотрудников со всеми имеющимся по ним данными
@@ -96,6 +96,34 @@ public class Main{
 
         // Получить Ф. И. О. всех сотрудников
         printEmployeesFullName();
+
+        // Проиндексировать зарплаты на 10%
+        Employee.changeSalary(10.0, employeeArray);
+
+        // Найти сотрудника с минимальной зарплатой в отделе 1
+        Employee minSalaryEmployeeDepartament = Employee.findEmployeeWithMinSalary(1, employeeArray);
+        System.out.println("Сотрудник с минимальной зарплатой в отделе 1: "+ minSalaryEmployeeDepartament.toString());
+
+        //Найти сотрудника с максимальной зарплатой в отделе 5
+        Employee maxSalaryEmployeeDepartament = Employee.findEmployeeWithMaxSalary(5, employeeArray);
+        System.out.println("Сотрудник с максимальной зарплатой в отделе 5: "+ maxSalaryEmployeeDepartament.toString());
+
+        // Посчитать сумму затрат на зарплаты в месяц по отделу
+        double totalSalaryDepartament = Employee.calculateTotalSalaryDepartament(3, employeeArray);
+        System.out.printf("Сумма затрат на зарплаты в месяц отдела 3: %.2f%n", totalSalaryDepartament);
+
+        // Подсчитать среднее значение зарплат по отделу
+        double averageSalaryDepartament = Employee.calculateAverageSalaryDepartament(2, employeeArray);
+        System.out.println("Средняя зарплата в отделе 2: " + averageSalaryDepartament);
+
+        // Напечатать всех сотрудников отдела 2
+        Employee.printEmployeesInDepartment(2, employeeArray);
+
+        // Вывести сотрудников с зарплатой меньше 60000
+        Employee.printEmployeesWithSalaryLessThan(60000.0, employeeArray);
+
+        // Вывести сотрудников с зарплатой больше или равной 60000
+        Employee.printEmployeesWithSalaryGreaterOrEqualTo(60000.0, employeeArray);
     }
 
 }
